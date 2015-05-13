@@ -13,9 +13,24 @@ h2{
 a{
 	font-family: Lobster;
 }
+footer{
+	text-align: center;
+	padding: 10px;
+	background-color: #ccc;
+	position:absolute;
+   	bottom:0%;
+    width:100%;
+}
+img {
+	margin-top: 100px; 
+	margin-bottom: 200px; 
+    -webkit-border-radius: 100%;
+       -moz-border-radius: 100%;
+            border-radius: 100%;	
+}
+
 
 /*modif bootstrap*/
-
 .btn-large{
     padding: 15px 25px;
     font-size: 20px;
