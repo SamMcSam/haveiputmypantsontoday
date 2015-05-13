@@ -1,8 +1,12 @@
+var answers;
+
 $(function() {
-	
+
 	//init
-	$('#answerYes').hide();
-	$('#answerNo').hide();
+	$.getJSON("resources/data/answers.json", function(json) {
+	    answers = json; 
+	});
+	$('#answer').hide();
 
 	//buttons	
 	$('#yesbutton').click(function(){
@@ -15,14 +19,16 @@ $(function() {
 });
 
 function answerQuestion(answer){
-	//loads random yes/no answer
-	//...
 
+	//loads random yes/no answer
 	if (answer)
-		$('#answerYes').show();
+		answers["yes"][Math.floor(Math.random() * answers["yes"].length)]
 	else
-		$('#answerNo').show();
+		answers["no"][Math.floor(Math.random() * answers["no"].length)]
 	
+	$('#answer').text();
+
+	$('#answer').show();
 	$('#part1').hide();
 	$('#part2').fadeIn();
 }
