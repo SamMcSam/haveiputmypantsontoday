@@ -27,7 +27,7 @@ function answerQuestion(answer){
 	else
 		textAnswer = answers["no"][Math.floor(Math.random() * answers["no"].length)]
 	
-	$('#answer').text();
+	$('#answer').text(textAnswer);
 
 	$('#answer').show();
 	$('#part1').hide();
