@@ -4,30 +4,36 @@
         <meta charset="UTF-8">
         <title>HIPMPOT - Start your day with the most important question.</title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+        <link href="resources/css/style.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lobster">
     </head>
 	<body>
-        <div id="part1" class="container">
-            <div class="row">
-                <div id="title" class="col-lg-12">
-                    <h1>Have I put my pants on today?</h1>
-                </div>
-            </div>
-            <div class="row">
-                <div id="yesbuttondiv" class="col-xs-6">
-                    <a id="yesbutton" class="btn btn-default"><i class="glyphicon glyphicon-thumbs-up"></i>Yes</a>
-                </div>
-                <div id="nobuttondiv" class="col-xs-6">
-                    <a id="nobutton" class="btn btn-default"><i class="glyphicon glyphicon-thumbs-down"></i>No</a>
-                </div>
-            </div>
-        </div>
+        <div class="text-center">
 
-        <div id="part2" class="container" style="display:none">
-            <div class="row">
-                <div id="answer" class="col-lg-12">
-                    <h2 id="answerTxt"></h2>
+            <div id="part1" class="container">
+                <div class="row">
+                    <div id="title" class="col-lg-12">
+                        <h1>Have I put my pants on today?</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="yesbuttondiv" class="col-xs-6">
+                        <a id="yesbutton" class="btn btn-large btn-default"><i class="glyphicon glyphicon-thumbs-up" href="#"></i>Yes</a>
+                    </div>
+                    <div id="nobuttondiv" class="col-xs-6">
+                        <a id="nobutton" class="btn btn-large btn-default"><i class="glyphicon glyphicon-thumbs-down" href="#"></i>No</a>
+                    </div>
                 </div>
             </div>
+
+            <div id="part2" class="container" style="display:none">
+                <div class="row">
+                    <div id="answer" class="col-lg-12">
+                        <h2 id="answerTxt"></h2>
+                    </div>
+                </div>
+            </div>
+
         </div>
 		
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

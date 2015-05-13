@@ -1,0 +1,22 @@
+.container{
+	width: 800px;
+}
+
+h1{
+	font-family: Lobster;
+	font-size: 88px;
+}
+h2{
+	font-family: Lobster;
+	font-size: 55px;
+}
+a{
+	font-family: Lobster;
+}
+
+/*modif bootstrap*/
+
+.btn-large{
+    padding: 15px 25px;
+    font-size: 20px;
+}
