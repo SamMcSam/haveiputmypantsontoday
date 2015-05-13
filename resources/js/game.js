@@ -19,12 +19,13 @@ $(function() {
 });
 
 function answerQuestion(answer){
+	var textAnswer;
 
 	//loads random yes/no answer
 	if (answer)
-		answers["yes"][Math.floor(Math.random() * answers["yes"].length)]
+		textAnswer = answers["yes"][Math.floor(Math.random() * answers["yes"].length)]
 	else
-		answers["no"][Math.floor(Math.random() * answers["no"].length)]
+		textAnswer = answers["no"][Math.floor(Math.random() * answers["no"].length)]
 	
 	$('#answer').text();
 
