@@ -22,6 +22,7 @@ body{
 p{
 	font-family: Oswald;
 	font-size: 20px;
+    text-align: justify;
 }
 h1{
 	font-size: 88px;
