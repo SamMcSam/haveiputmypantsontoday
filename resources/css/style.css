@@ -1,9 +1,6 @@
 .main-container{
 	width: 800px;
 }
-.steps{
-	color: #333;
-}
 
 #information{
 	background-color: #333;
@@ -55,9 +52,4 @@ img {
 .btn-large{
     padding: 15px 25px;
     font-size: 20px;
-}
-.list-group-item {
-    display: list-item;
-	margin-bottom: 5px; 
-	background-color: #ccc;
 }
