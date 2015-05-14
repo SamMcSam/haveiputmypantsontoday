@@ -1,24 +1,45 @@
-.container{
+.main-container{
 	width: 800px;
 }
+.steps{
+	color: #333;
+}
 
-h1{
+#information{
+	background-color: #333;
+	color: #FFF;
+	margin-top: 200px; 
+	padding-top: 20px; 
+	padding-bottom: 50px; 
+	margin-left: auto; 
+}
+#quote{
+	font-size: 30px;
+	text-align: center;
+	color: #FD5454;
+}
+
+body{
 	font-family: Lobster;
+}
+p{
+	font-family: Oswald;
+	font-size: 20px;
+}
+h1{
 	font-size: 88px;
 }
 h2{
-	font-family: Lobster;
 	font-size: 55px;
 }
-a{
-	font-family: Lobster;
+h3{
+	color: #FDE597;
 }
 footer{
 	text-align: center;
 	padding: 10px;
 	background-color: #ccc;
-	position:absolute;
-   	bottom:0%;
+   	bottom:0px;
     width:100%;
 }
 img {
@@ -34,4 +55,9 @@ img {
 .btn-large{
     padding: 15px 25px;
     font-size: 20px;
+}
+.list-group-item {
+    display: list-item;
+	margin-bottom: 5px; 
+	background-color: #ccc;
 }
