@@ -3,17 +3,17 @@
 }
 
 #information{
-	background-color: #333;
-	color: #FFF;
-	margin-top: 200px; 
+	margin-top: 140px; 
+	margin-left: auto; 
 	padding-top: 20px; 
 	padding-bottom: 50px; 
-	margin-left: auto; 
+	background-color: #333;
+	color: #FFF;
 }
 #quote{
 	font-size: 30px;
 	text-align: center;
-	color: #FD5454;
+	color: #FFCB00;
 }
 
 body{
@@ -41,8 +41,8 @@ footer{
     width:100%;
 }
 img {
-	margin-top: 100px; 
-	margin-bottom: 200px; 
+	margin-top: 50px; 
+	margin-bottom: 50px; 
     -webkit-border-radius: 100%;
        -moz-border-radius: 100%;
             border-radius: 100%;	
