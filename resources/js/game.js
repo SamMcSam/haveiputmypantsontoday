@@ -1,4 +1,5 @@
 var answers;
+var quotes;
 
 $(function() {
 
@@ -6,7 +7,12 @@ $(function() {
 	$.getJSON("resources/data/answers.json", function(json) {
 	    answers = json; 
 	});
-	$('#answer').hide();
+
+	$.getJSON("resources/data/batman.json", function(json) {
+	    quotes = json; 
+	});
+
+	resetGame();
 
 	//buttons	
 	$('#yesbutton').click(function(){
@@ -15,20 +21,35 @@ $(function() {
 	$('#nobutton').click(function(){
 		answerQuestion(false);
 	});
+	$('#backbtn').click(function(){
+		resetGame();
+	});
 
 });
+
+function resetGame(){
+	$('#answer').hide();
+	$('#part2').hide();
+	$('#part1').fadeIn();
+}
 
 function answerQuestion(answer){
 	var textAnswer;
 
 	//loads random yes/no answer
 	if (answer)
-		textAnswer = answers["yes"][Math.floor(Math.random() * answers["yes"].length)]
+		textAnswer = answers["yes"][Math.floor(Math.random() * answers["yes"].length)];
 	else
-		textAnswer = answers["no"][Math.floor(Math.random() * answers["no"].length)]
+		textAnswer = answers["no"][Math.floor(Math.random() * answers["no"].length)];
 	$('#answerTxt').text(textAnswer);
 
 	$('#answer').show();
 	$('#part1').hide();
 	$('#part2').fadeIn();
+
+	pickQuote();
+}
+
+function pickQuote(){
+	$('#backquote').text("Holy " + quotes["holy"][Math.floor(Math.random() * quotes["holy"].length)] + ", Batman!");
 }
