@@ -30,6 +30,8 @@ $(function() {
 function resetGame(){
 	$('#answer').hide();
 	$('#part2').hide();
+	$('#yesPicture').hide();
+	$('#noPicture').hide();
 	$('#part1').fadeIn();
 }
 
@@ -37,10 +39,14 @@ function answerQuestion(answer){
 	var textAnswer;
 
 	//loads random yes/no answer
-	if (answer)
+	if (answer){
 		textAnswer = answers["yes"][Math.floor(Math.random() * answers["yes"].length)];
-	else
+		$('#yesPicture').show();
+	}
+	else{
 		textAnswer = answers["no"][Math.floor(Math.random() * answers["no"].length)];
+		$('#noPicture').show();
+	}
 	$('#answerTxt').text(textAnswer);
 
 	$('#answer').show();

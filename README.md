@@ -8,3 +8,4 @@ Have I put my pants on today? Start your day with the most important question.
 * Facebook sharing integration (c) Facebook Inc.
 * Lobster font (c) Pablo Impallari https://www.google.com/fonts/specimen/Lobster
 * Oswald font (c) Vernon Adams https://www.google.com/fonts/specimen/Oswald
+* Bubble effect from http://www.ilikepixels.co.uk/drop/bubbler/
