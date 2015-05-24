@@ -34,6 +34,15 @@
 	left: -15px;
 	top: 20px;
 }
+#mainPart{
+	height: 700px;
+}
+#footer{
+	text-align: center;
+	padding: 10px;
+	background-color: #ccc;
+    width:100%;
+}
 
 body{
 	font-family: Lobster;
@@ -51,12 +60,6 @@ h2{
 }
 h3{
 	color: #FDE597;
-}
-footer{
-	text-align: center;
-	padding: 10px;
-	background-color: #ccc;
-    width:100%;
 }
 img {
 	margin-top: 50px; 
