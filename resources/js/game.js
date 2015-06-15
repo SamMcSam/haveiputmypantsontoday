@@ -1,6 +1,9 @@
 var answers;
 var quotes;
 
+const COOKIEPANTS = "pants"
+const COOKIEPANTS_DATE = "pants_date" //workaround to save expiry date
+
 $(function() {
 
 	//init
@@ -12,27 +15,38 @@ $(function() {
 	    quotes = json; 
 	});
 
-	resetGame();
+	//set state of game
+	if (Cookies.get(COOKIEPANTS)) {
+		//come back later
+	}
+	else {
+		//sets up normal game!
+		$('#answer').hide();
+		$('#part2').hide();
+		$('#yesPicture').hide();
+		$('#noPicture').hide();
+		$('#part1').fadeIn();
 
-	//buttons	
-	$('#yesbutton').click(function(){
-		answerQuestion(true);
-	});
-	$('#nobutton').click(function(){
-		answerQuestion(false);
-	});
-	$('#backbtn').click(function(){
-		resetGame();
-	});
+		//buttons	
+		$('#yesbutton').click(function(){
+			answerQuestion(true);
+		});
+		$('#nobutton').click(function(){
+			answerQuestion(false);
+		});
+	}
 
 });
 
-function resetGame(){
-	$('#answer').hide();
-	$('#part2').hide();
-	$('#yesPicture').hide();
-	$('#noPicture').hide();
-	$('#part1').fadeIn();
+function setCookie(haveIputPants) {
+	var today = new Date();
+	var tomorrow = new Date();
+	tomorrow.setDate(today.getDate()+1);
+	tomorrow.setUTCHours("22");
+	tomorrow.setUTCMinutes("0");
+	tomorrow.setUTCSeconds("0");
+	Cookies.set( COOKIEPANTS , 'haveIputPants', { expires: tomorrow });
+	Cookies.set( COOKIEPANTS_DATE , tomorrow.toString(), { expires: tomorrow });
 }
 
 function answerQuestion(answer){
@@ -53,9 +67,27 @@ function answerQuestion(answer){
 	$('#part1').hide();
 	$('#part2').fadeIn();
 
+
+	setCookie(answer);
+
 	pickQuote();
+	$('#timeDiff').text(getTimeBefore());
 }
 
 function pickQuote(){
 	$('#backquote').text("Holy " + quotes["holy"][Math.floor(Math.random() * quotes["holy"].length)] + ", Batman!");
+}
+
+function getTimeBefore(){
+	var today = new Date();
+	var then = new Date( Cookies.get(COOKIEPANTS_DATE) );
+
+	var diff = Math.floor((then - today)/1000);
+	var sec = diff % 60;
+	diff = Math.floor(diff/60);
+	var min = diff % 60;
+	diff = Math.floor(diff/60);
+	var hour = diff % 60;
+
+	return hour + ":" + min + ":" + sec;
 }
