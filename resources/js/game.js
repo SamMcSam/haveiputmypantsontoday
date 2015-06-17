@@ -4,6 +4,9 @@ var quotes;
 const COOKIEPANTS = "pants"
 const COOKIEPANTS_DATE = "pants_date" //workaround to save expiry date
 
+var timer = new Timer("#timeDiff", false);
+setInterval(function(){timer.update()}, 1000);
+
 $(function() {
 
 	//init
@@ -16,15 +19,20 @@ $(function() {
 	});
 
 	//set state of game
+	$('#yesPicture').hide();
+	$('#noPicture').hide();
 	if (Cookies.get(COOKIEPANTS)) {
 		//come back later
+		getTimeBefore();
+
+		$('#part1').hide();
+		$('#part2').fadeIn();
+
 	}
 	else {
 		//sets up normal game!
 		$('#answer').hide();
 		$('#part2').hide();
-		$('#yesPicture').hide();
-		$('#noPicture').hide();
 		$('#part1').fadeIn();
 
 		//buttons	
@@ -42,9 +50,10 @@ function setCookie(haveIputPants) {
 	var today = new Date();
 	var tomorrow = new Date();
 	tomorrow.setDate(today.getDate()+1);
-	tomorrow.setUTCHours("22");
-	tomorrow.setUTCMinutes("0");
-	tomorrow.setUTCSeconds("0");
+	tomorrow.setHours("0");
+	tomorrow.setMinutes("0");
+	tomorrow.setSeconds("0");
+
 	Cookies.set( COOKIEPANTS , 'haveIputPants', { expires: tomorrow });
 	Cookies.set( COOKIEPANTS_DATE , tomorrow.toString(), { expires: tomorrow });
 }
@@ -71,7 +80,7 @@ function answerQuestion(answer){
 	setCookie(answer);
 
 	pickQuote();
-	$('#timeDiff').text(getTimeBefore());
+	getTimeBefore();
 }
 
 function pickQuote(){
@@ -89,5 +98,10 @@ function getTimeBefore(){
 	diff = Math.floor(diff/60);
 	var hour = diff % 60;
 
-	return hour + ":" + min + ":" + sec;
+
+	timer.setHour(hour);
+	timer.setMin(min);
+	timer.setSec(sec);
+
+	return [hour, min, sec];
 }
