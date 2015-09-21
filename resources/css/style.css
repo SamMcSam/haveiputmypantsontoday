@@ -43,6 +43,14 @@
 	background-color: #ccc;
     width:100%;
 }
+#help {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+#help a {
+    color: #333333;
+}
 
 body{
 	font-family: Lobster;
