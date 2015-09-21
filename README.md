@@ -1,5 +1,5 @@
 # haveiputmypantsontoday
-Have I put my pants on today? Start your day with the most important question.
+Have I put on my pants today? Start your day with the most important question.
 
 ## Copyright
 
