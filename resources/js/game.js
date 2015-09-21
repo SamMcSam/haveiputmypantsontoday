@@ -1,12 +1,6 @@
 var answers;
 var quotes;
 
-const COOKIEPANTS = "pants"
-const COOKIEPANTS_DATE = "pants_date" //workaround to save expiry date
-
-var timer = new Timer("#timeDiff", false);
-setInterval(function(){timer.update()}, 1000);
-
 $(function() {
 
 	//init
@@ -18,47 +12,32 @@ $(function() {
 	    quotes = json; 
 	});
 
-	//set state of game
-	$('#yesPicture').hide();
-	$('#noPicture').hide();
-	if (Cookies.get(COOKIEPANTS)) {
-		//come back later
-		getTimeBefore();
+	startUp();
 
-		$('#part1').hide();
-		$('#part2').fadeIn();
-
-	}
-	else {
-		//sets up normal game!
-		$('#answer').hide();
-		$('#part2').hide();
-		$('#part1').fadeIn();
-
-		//buttons	
-		$('#yesbutton').click(function(){
-			answerQuestion(true);
-		});
-		$('#nobutton').click(function(){
-			answerQuestion(false);
-		});
-	}
+	//buttons	
+	$('#yesbutton').click(function(){
+		answerQuestion(true);
+	});
+	$('#nobutton').click(function(){
+		answerQuestion(false);
+	});
+	$('#repeatbutton').click(function(){
+		startUp();
+	});
 
 });
 
-function setCookie(haveIputPants) {
-	var today = new Date();
-	var tomorrow = new Date();
-	tomorrow.setDate(today.getDate()+1);
-	tomorrow.setHours("0");
-	tomorrow.setMinutes("0");
-	tomorrow.setSeconds("0");
+//set state of game	
+function startUp() {
+	$('#yesPicture').hide();
+	$('#noPicture').hide();
 
-	Cookies.set( COOKIEPANTS , 'haveIputPants', { expires: tomorrow });
-	Cookies.set( COOKIEPANTS_DATE , tomorrow.toString(), { expires: tomorrow });
+	$('#answer').hide();
+	$('#part2').hide();
+	$('#part1').fadeIn();
 }
 
-function answerQuestion(answer){
+function answerQuestion(answer) {
 	var textAnswer;
 
 	//loads random yes/no answer
@@ -76,32 +55,9 @@ function answerQuestion(answer){
 	$('#part1').hide();
 	$('#part2').fadeIn();
 
-
-	setCookie(answer);
-
 	pickQuote();
-	getTimeBefore();
 }
 
-function pickQuote(){
+function pickQuote() {
 	$('#backquote').text("Holy " + quotes["holy"][Math.floor(Math.random() * quotes["holy"].length)] + ", Batman!");
-}
-
-function getTimeBefore(){
-	var today = new Date();
-	var then = new Date( Cookies.get(COOKIEPANTS_DATE) );
-
-	var diff = Math.floor((then - today)/1000);
-	var sec = diff % 60;
-	diff = Math.floor(diff/60);
-	var min = diff % 60;
-	diff = Math.floor(diff/60);
-	var hour = diff % 60;
-
-
-	timer.setHour(hour);
-	timer.setMin(min);
-	timer.setSec(sec);
-
-	return [hour, min, sec];
 }
